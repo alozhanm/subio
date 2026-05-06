@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import HeroCards from "./HeroCards";
 
 export default function HeroSection() {
@@ -62,6 +63,28 @@ const heroCards = [
 ];
 
 function EmailForm() {
+  const [email, setEmail] = React.useState("");
+  const [status, setStatus] = React.useState<"idle" | "loading" | "done">("idle");
+
+  const handleSubmit = async () => {
+    if (!email || !email.includes("@")) return;
+    setStatus("loading");
+    await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    setStatus("done");
+  };
+
+  if (status === "done") {
+    return (
+      <div style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "#1C1917", background: "rgba(255,255,255,0.75)", borderRadius: 14, padding: "12px 24px", backdropFilter: "blur(10px)" }}>
+        ✅ Got it! We&apos;ll be in touch soon.
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full" style={{ maxWidth: 460 }}>
       <div
@@ -77,6 +100,9 @@ function EmailForm() {
         <input
           type="email"
           placeholder="your@email.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           style={{
             flex: 1,
             border: "none",
@@ -89,8 +115,9 @@ function EmailForm() {
           }}
         />
       </div>
-      <a
-        href="https://cal.com/alijan/subio-demo"
+      <button
+        onClick={handleSubmit}
+        disabled={status === "loading"}
         className="btn-dark text-center"
         style={{
           whiteSpace: "nowrap",
@@ -98,11 +125,12 @@ function EmailForm() {
           padding: "12px 18px",
           fontSize: 14,
           fontFamily: "var(--font-body)",
-          textDecoration: "none",
+          cursor: status === "loading" ? "wait" : "pointer",
+          border: "none",
         }}
       >
-        Let&apos;s build your community →
-      </a>
+        {status === "loading" ? "Sending..." : "Let's build your community →"}
+      </button>
     </div>
   );
 }
