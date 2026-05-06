@@ -328,7 +328,7 @@ export default function HeroCards() {
           50% { opacity:0; }
         }
       `}</style>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, width: "100%" }}>
+      <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 12, width: "100%" }}>
         <Card1 />
         <Card2 />
         <Card3 />

@@ -23,27 +23,29 @@ export default function CTASection() {
         Go get them.
       </h2>
 
-      <div
-        className="flex items-center w-full max-w-[520px] overflow-hidden"
-        style={{
-          background: "rgba(255,255,255,0.9)",
-          border: "1px solid rgba(0,0,0,0.12)",
-          borderRadius: 12,
-          backdropFilter: "blur(8px)",
-        }}
-      >
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="flex-1 px-5 py-3.5 bg-transparent outline-none text-black placeholder-gray-400"
-          style={{ fontFamily: "var(--font-body)", fontSize: 15 }}
-        />
+      <div className="flex flex-col sm:flex-row gap-2 w-full max-w-[520px]">
+        <div
+          className="flex-1 flex items-center overflow-hidden"
+          style={{
+            background: "rgba(255,255,255,0.9)",
+            border: "1px solid rgba(0,0,0,0.12)",
+            borderRadius: 12,
+            backdropFilter: "blur(8px)",
+          }}
+        >
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 px-5 py-3.5 bg-transparent outline-none text-black placeholder-gray-400"
+            style={{ fontFamily: "var(--font-body)", fontSize: 15, minWidth: 0 }}
+          />
+        </div>
         <a
           href="https://cal.com/alijan/subio-demo"
-          className="btn-dark mx-1 my-1 px-5 py-3"
-          style={{ fontSize: 14, borderRadius: 9, textDecoration: "none" }}
+          className="btn-dark px-5 py-3.5 text-center"
+          style={{ fontSize: 14, borderRadius: 12, textDecoration: "none", whiteSpace: "nowrap" }}
         >
           Book a Call
         </a>

@@ -65,8 +65,8 @@ const MONTH_LABELS = [
 ];
 
 const DAY_LABELS = ["Mon", "", "Wed", "", "Fri", "", "Sun"];
-const CELL = 18;
-const GAP = 4;
+const CELL = 14;
+const GAP = 3;
 
 function useCountUp(target: number, active: boolean, duration = 1200) {
   const [val, setVal] = useState(0);
@@ -153,7 +153,8 @@ export default function RedditHeatmap() {
       </div>
 
       {/* Grid + day labels */}
-      <div style={{ display: "flex", gap: 6, alignItems: "flex-start" }}>
+      <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+      <div style={{ display: "flex", gap: 4, alignItems: "flex-start", minWidth: "fit-content" }}>
         {/* Day labels */}
         <div style={{ display: "flex", flexDirection: "column", gap: GAP, paddingTop: 1 }}>
           {DAY_LABELS.map((d, i) => (
@@ -202,6 +203,7 @@ export default function RedditHeatmap() {
             })
           )}
         </div>
+      </div>
       </div>
 
       {/* Stats */}

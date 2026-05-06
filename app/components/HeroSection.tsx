@@ -23,7 +23,7 @@ export default function HeroSection() {
         <p
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: 18,
+            fontSize: "clamp(15px, 2vw, 18px)",
             color: "#1C1917",
             lineHeight: 1.6,
             maxWidth: 640,
@@ -31,9 +31,7 @@ export default function HeroSection() {
             opacity: 0.85,
           }}
         >
-          We build Reddit communities and organic content that gets your startup
-          <br />
-          recommended by Claude, Perplexity, and Google every day.
+          We build Reddit communities and organic content that gets your startup recommended by Claude, Perplexity, and Google every day.
         </p>
 
         {/* Email CTA */}
@@ -65,38 +63,39 @@ const heroCards = [
 
 function EmailForm() {
   return (
-    <div
-      className="flex items-center gap-2"
-      style={{
-        background: "rgba(255,255,255,0.75)",
-        backdropFilter: "blur(10px)",
-        border: "1px solid rgba(0,0,0,0.12)",
-        borderRadius: 14,
-        padding: "6px 6px 6px 16px",
-        width: "100%",
-        maxWidth: 460,
-      }}
-    >
-      <input
-        type="email"
-        placeholder="your@email.com"
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full" style={{ maxWidth: 460 }}>
+      <div
+        className="flex items-center gap-2 flex-1"
         style={{
-          flex: 1,
-          border: "none",
-          outline: "none",
-          background: "transparent",
-          fontFamily: "var(--font-body)",
-          fontSize: 15,
-          color: "#1C1917",
+          background: "rgba(255,255,255,0.75)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(0,0,0,0.12)",
+          borderRadius: 14,
+          padding: "10px 16px",
         }}
-      />
+      >
+        <input
+          type="email"
+          placeholder="your@email.com"
+          style={{
+            flex: 1,
+            border: "none",
+            outline: "none",
+            background: "transparent",
+            fontFamily: "var(--font-body)",
+            fontSize: 15,
+            color: "#1C1917",
+            minWidth: 0,
+          }}
+        />
+      </div>
       <a
         href="https://cal.com/alijan/subio-demo"
-        className="btn-dark"
+        className="btn-dark text-center"
         style={{
           whiteSpace: "nowrap",
-          borderRadius: 10,
-          padding: "10px 18px",
+          borderRadius: 12,
+          padding: "12px 18px",
           fontSize: 14,
           fontFamily: "var(--font-body)",
           textDecoration: "none",

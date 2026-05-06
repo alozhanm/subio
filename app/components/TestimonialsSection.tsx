@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
 
         {/* Single card */}
         <div
-          className="rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+          className="rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden mx-auto"
           style={{ background: "#F5F5EF", maxWidth: 900, margin: "0 auto", minHeight: 420 }}
         >
           {/* Photo */}

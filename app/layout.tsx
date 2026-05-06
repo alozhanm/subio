@@ -19,6 +19,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "subio — Your first 1,000 users are already on Reddit",
   description: "We build Reddit communities and organic content that gets your startup recommended by Claude, Perplexity, and Google every day.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

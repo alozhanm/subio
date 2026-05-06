@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marquee-track {
-  animation: marquee 25s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 
 .footer-link {

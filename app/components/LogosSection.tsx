@@ -1,16 +1,32 @@
 export default function LogosSection() {
   return (
     <section
-      className="w-full py-8 overflow-hidden"
+      className="w-full py-6 overflow-hidden"
       style={{ borderTop: "1px solid #F0EFED", borderBottom: "1px solid #F0EFED" }}
     >
+      {/* Label */}
+      <p
+        className="text-center mb-5"
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: 11,
+          fontWeight: 500,
+          color: "#B0ABA5",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+        }}
+      >
+        official affiliate partners
+      </p>
+
+      {/* Marquee */}
       <div className="flex overflow-hidden">
-        <div className="flex items-center gap-16 marquee-track" style={{ minWidth: "max-content" }}>
-          {[...logos, ...logos].map((logo, i) => (
+        <div className="flex items-center gap-14 marquee-track" style={{ minWidth: "max-content" }}>
+          {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
             <div
               key={i}
               className="flex items-center justify-center"
-              style={{ minWidth: 120, opacity: 0.75 }}
+              style={{ minWidth: 100, opacity: 0.6 }}
             >
               {logo}
             </div>
@@ -21,40 +37,20 @@ export default function LogosSection() {
   );
 }
 
+const logoStyle: React.CSSProperties = {
+  height: 22,
+  width: "auto",
+  maxWidth: 110,
+  objectFit: "contain",
+  display: "block",
+  filter: "grayscale(100%)",
+};
+
 const logos = [
-  // belkins
-  <svg key="belkins" width="100" height="28" viewBox="0 0 100 28" fill="none">
-    <text x="0" y="20" fontFamily="var(--font-heading)" fontWeight="600" fontSize="18" fill="#1C1917">belkins</text>
-    <circle cx="48" cy="10" r="3" fill="#1C1917" />
-  </svg>,
-
-  // Airtable
-  <svg key="airtable" width="100" height="28" viewBox="0 0 100 28" fill="none">
-    <text x="0" y="20" fontFamily="var(--font-heading)" fontWeight="600" fontSize="18" fill="#1C1917">Airtable</text>
-  </svg>,
-
-  // paddle
-  <svg key="paddle" width="80" height="28" viewBox="0 0 80 28" fill="none">
-    <text x="0" y="20" fontFamily="var(--font-heading)" fontWeight="500" fontSize="18" fill="#1C1917">paddle</text>
-  </svg>,
-
-  // Index Ventures
-  <div key="index" className="flex items-center gap-1">
-    <div style={{ width: 20, height: 20, background: "#1C1917", borderRadius: 3, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <span style={{ color: "#fff", fontSize: 10, fontWeight: 700 }}>≡</span>
-    </div>
-    <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 14, color: "#1C1917", lineHeight: 1.1 }}>
-      Index<br />Ventures
-    </span>
-  </div>,
-
-  // WOJO
-  <svg key="wojo" width="80" height="28" viewBox="0 0 80 28" fill="none">
-    <text x="0" y="20" fontFamily="var(--font-heading)" fontWeight="700" fontSize="20" fill="#1C1917" letterSpacing="2">WOJO</text>
-  </svg>,
-
-  // Workday
-  <svg key="workday" width="100" height="28" viewBox="0 0 100 28" fill="none">
-    <text x="0" y="20" fontFamily="var(--font-heading)" fontWeight="500" fontSize="17" fill="#1C1917">workday.</text>
-  </svg>,
+  <img key="emergent" src="/logo-partner-emergent.jpeg" alt="Emergent" style={logoStyle} />,
+  <img key="elevenlabs" src="/logo-partner-elevenlabs.png" alt="Eleven Labs" style={logoStyle} />,
+  <img key="turbotic" src="/logo-partner-turbotic.png" alt="Turbotic" style={{ ...logoStyle, height: 32 }} />,
+  <img key="gamma" src="/logo-partner-gamma.png" alt="Gamma" style={logoStyle} />,
+  <img key="kit" src="/logo-partner-kit.png" alt="Kit" style={{ ...logoStyle, height: 36, maxWidth: 90 }} />,
+  <span key="supersonic" style={{ fontFamily: "var(--font-heading)", fontSize: 15, fontWeight: 600, color: "#1C1917", whiteSpace: "nowrap", opacity: 0.6 }}>Supersonic Inc.</span>,
 ];

@@ -4,10 +4,10 @@ import ClaudeRecommendation from "./ClaudeRecommendation";
 
 export default function FeaturesSection() {
   return (
-    <section id="how-it-works" className="w-full py-24 px-4" style={{ maxWidth: 1180, margin: "0 auto" }}>
+    <section id="how-it-works" className="w-full py-12 md:py-24 px-4" style={{ maxWidth: 1180, margin: "0 auto" }}>
       {/* Section heading */}
       <h2
-        className="text-center mb-20"
+        className="text-center mb-8 md:mb-20"
         style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 400,
@@ -23,7 +23,7 @@ export default function FeaturesSection() {
       </h2>
 
       {/* Feature 1 — Left text, right image */}
-      <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
+      <div className="flex flex-col md:flex-row items-center gap-8 mb-12 md:mb-20">
         <div className="flex-1">
           <h3
             style={{
@@ -65,18 +65,18 @@ export default function FeaturesSection() {
           </a>
         </div>
         <div
-          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center"
-          style={{ background: "#F5F5F0", minHeight: 320 }}
+          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center w-full"
+          style={{ background: "#F5F5F0", minHeight: "auto", padding: "24px 16px" }}
         >
           <RedditStackedCards />
         </div>
       </div>
 
       {/* Feature 2 — Right text, left image */}
-      <div className="flex flex-col-reverse md:flex-row items-center gap-12 mb-24">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-8 mb-12 md:mb-20">
         <div
-          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center"
-          style={{ background: "#F5F5F0", minHeight: 320, padding: 16 }}
+          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center w-full"
+          style={{ background: "#F5F5F0", minHeight: "auto", padding: 16 }}
         >
           <RedditHeatmap />
         </div>
@@ -165,8 +165,8 @@ export default function FeaturesSection() {
           </a>
         </div>
         <div
-          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center"
-          style={{ background: "#F5F5F0", minHeight: 320, padding: 20 }}
+          className="flex-1 rounded-2xl overflow-hidden flex items-center justify-center w-full"
+          style={{ background: "#F5F5F0", minHeight: "auto", padding: 20 }}
         >
           <ClaudeRecommendation startupName="CodeWisp (YC W26)" />
         </div>

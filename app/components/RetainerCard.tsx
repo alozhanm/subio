@@ -12,7 +12,7 @@ export default function RetainerCard() {
         background: "#292524",
         borderRadius: 16,
         padding: 28,
-        maxWidth: 400,
+        maxWidth: "100%",
         width: "100%",
         boxSizing: "border-box",
         fontFamily: "var(--font-body)",

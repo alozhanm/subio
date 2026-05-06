@@ -90,7 +90,7 @@ export default function ClaudeRecommendation({ startupName = "subio" }: Props) {
         background: "#F7F4EE",
         borderRadius: 16,
         padding: 20,
-        maxWidth: 420,
+        maxWidth: "100%",
         width: "100%",
         boxSizing: "border-box",
         fontFamily: "var(--font-body)",

@@ -69,92 +69,47 @@ export default function ResultsTimeline() {
         Most clients see meaningful traction in the first month.
       </p>
 
-      {/* Timeline */}
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+      {/* Timeline — horizontal on md+, vertical on mobile */}
+      <div className="hidden md:flex" style={{ alignItems: "flex-start", justifyContent: "space-between" }}>
         {STEPS.map((step, i) => {
           const active = activeStep(i);
           return (
             <div key={i} style={{ display: "flex", alignItems: "flex-start", flex: 1 }}>
-              {/* Step */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: "0 0 auto" }}>
-                {/* Dot */}
-                <div
-                  style={{
-                    width: 20,
-                    height: 20,
-                    borderRadius: "50%",
-                    background: active ? "#C0392B" : "#3A3A3A",
-                    boxShadow: active ? "0 0 0 4px rgba(192,57,43,0.2)" : "none",
-                    transition: "background 0.3s ease, box-shadow 0.3s ease",
-                    flexShrink: 0,
-                    marginBottom: 10,
-                  }}
-                />
-                {/* Labels */}
-                <span
-                  style={{
-                    fontSize: 11,
-                    color: active ? "#C0392B" : "#4A4A4A",
-                    fontWeight: 600,
-                    letterSpacing: "0.5px",
-                    transition: "color 0.3s ease",
-                    textAlign: "center",
-                  }}
-                >
-                  DAY {step.day}
-                </span>
-                <span
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: active ? "#F7F4EE" : "#4A4A4A",
-                    transition: "color 0.3s ease",
-                    textAlign: "center",
-                    marginTop: 2,
-                  }}
-                >
-                  {step.title}
-                </span>
-                <span
-                  style={{
-                    fontSize: 11,
-                    color: active ? "#6B6B6B" : "#3A3A3A",
-                    transition: "color 0.3s ease",
-                    textAlign: "center",
-                    marginTop: 3,
-                    lineHeight: 1.4,
-                    maxWidth: 100,
-                  }}
-                >
-                  {step.desc}
-                </span>
+                <div style={{ width: 20, height: 20, borderRadius: "50%", background: active ? "#C0392B" : "#3A3A3A", boxShadow: active ? "0 0 0 4px rgba(192,57,43,0.2)" : "none", transition: "background 0.3s ease, box-shadow 0.3s ease", flexShrink: 0, marginBottom: 10 }} />
+                <span style={{ fontSize: 11, color: active ? "#C0392B" : "#4A4A4A", fontWeight: 600, letterSpacing: "0.5px", transition: "color 0.3s ease", textAlign: "center" }}>DAY {step.day}</span>
+                <span style={{ fontSize: 13, fontWeight: 500, color: active ? "#F7F4EE" : "#4A4A4A", transition: "color 0.3s ease", textAlign: "center", marginTop: 2 }}>{step.title}</span>
+                <span style={{ fontSize: 11, color: active ? "#6B6B6B" : "#3A3A3A", transition: "color 0.3s ease", textAlign: "center", marginTop: 3, lineHeight: 1.4, maxWidth: 100 }}>{step.desc}</span>
               </div>
-
-              {/* Connector (not after last step) */}
               {i < STEPS.length - 1 && (
-                <div
-                  style={{
-                    flex: 1,
-                    height: 1,
-                    background: "#3A3A3A",
-                    marginTop: 10,
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      top: 0,
-                      height: "100%",
-                      width: `${connectorFill(i)}%`,
-                      background: "#C0392B",
-                      transition: "width 0.1s linear",
-                    }}
-                  />
+                <div style={{ flex: 1, height: 1, background: "#3A3A3A", marginTop: 10, position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${connectorFill(i)}%`, background: "#C0392B", transition: "width 0.1s linear" }} />
                 </div>
               )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Mobile: vertical timeline */}
+      <div className="flex md:hidden flex-col gap-4">
+        {STEPS.map((step, i) => {
+          const active = activeStep(i);
+          return (
+            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ width: 18, height: 18, borderRadius: "50%", background: active ? "#C0392B" : "#3A3A3A", boxShadow: active ? "0 0 0 4px rgba(192,57,43,0.2)" : "none", transition: "background 0.3s ease", flexShrink: 0 }} />
+                {i < STEPS.length - 1 && (
+                  <div style={{ width: 1, flex: 1, minHeight: 32, background: "#3A3A3A", position: "relative", overflow: "hidden", marginTop: 4 }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: active ? "100%" : "0%", background: "#C0392B", transition: "height 0.3s ease" }} />
+                  </div>
+                )}
+              </div>
+              <div style={{ paddingBottom: 8 }}>
+                <span style={{ fontSize: 11, color: active ? "#C0392B" : "#4A4A4A", fontWeight: 600, display: "block" }}>DAY {step.day}</span>
+                <span style={{ fontSize: 13, fontWeight: 500, color: active ? "#F7F4EE" : "#4A4A4A", display: "block", marginTop: 2 }}>{step.title}</span>
+                <span style={{ fontSize: 11, color: active ? "#6B6B6B" : "#3A3A3A", display: "block", marginTop: 2, lineHeight: 1.4 }}>{step.desc}</span>
+              </div>
             </div>
           );
         })}

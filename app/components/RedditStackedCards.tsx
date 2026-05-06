@@ -47,7 +47,7 @@ export default function RedditStackedCards() {
       <div
         style={{
           position: "relative",
-          width: 360,
+          width: "min(360px, 100%)",
           height: expanded ? expandedHeight : collapsedHeight,
           transition: "height 0.7s cubic-bezier(0.075, 0.82, 0.165, 1)",
           cursor: "pointer",
@@ -60,7 +60,7 @@ export default function RedditStackedCards() {
             style={{
               position: "absolute",
               left: 0,
-              width: 360,
+              width: "min(360px, 100%)",
               height: CARD_H,
               top: expanded ? i * (CARD_H + GAP) : i * PEEK,
               zIndex: cards.length - i,

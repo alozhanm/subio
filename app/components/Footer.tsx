@@ -13,7 +13,7 @@ export default function Footer() {
         style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 500,
-          fontSize: "clamp(60px, 12vw, 180px)",
+          fontSize: "clamp(40px, 10vw, 180px)",
           color: "#1C1917",
           letterSpacing: "-4px",
           lineHeight: 0.9,
