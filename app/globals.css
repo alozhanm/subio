@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --font-body-family: var(--font-body, 'DM Sans'), sans-serif;
+  --font-heading-family: var(--font-heading, 'Space Grotesk'), sans-serif;
+  --color-dark: #1C1917;
+  --color-dark-hover: #292524;
+  --color-border: #E7E5E4;
+  --color-muted: #78716C;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body-family);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-family);
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 60% 80% at 5% 60%, rgba(245, 162, 35, 0.85) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 25% 85%, rgba(242, 120, 30, 0.6) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 70% at 85% 15%, rgba(180, 175, 220, 0.7) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 75% 65%, rgba(190, 210, 235, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 50% at 50% 35%, rgba(210, 200, 235, 0.35) 0%, transparent 50%),
+    #faf8f5;
+}
+
+.footer-gradient {
+  background:
+    linear-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 25%),
+    radial-gradient(ellipse 80% 80% at 10% 85%, rgba(245, 162, 35, 0.75) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 85% 30%, rgba(180, 175, 220, 0.55) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 60% 75%, rgba(190, 210, 235, 0.45) 0%, transparent 50%),
+    #faf8f5;
+}
+
+.cta-gradient {
+  background:
+    radial-gradient(ellipse 60% 80% at 5% 60%, rgba(245, 162, 35, 0.8) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 30% 85%, rgba(242, 120, 30, 0.5) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 70% at 85% 20%, rgba(180, 175, 220, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 75% 70%, rgba(190, 210, 235, 0.5) 0%, transparent 50%),
+    #faf8f5;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.6s ease forwards; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+
+.footer-link {
+  font-family: var(--font-body-family);
+  font-size: 13px;
+  color: #78716C;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: #1C1917;
+}
+
+.btn-dark {
+  background: #1C1917;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-dark:hover {
+  background: #292524;
+}
